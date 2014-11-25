@@ -146,3 +146,6 @@ input[type=url]:focus {
   clear: both;
 }
 
+td {
+  width: 300px;
+}

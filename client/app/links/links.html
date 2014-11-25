@@ -1,10 +1,12 @@
 <div id='container' ng-controller='LinksController'>
   <!-- Your html here -->
   <input type="text" ng-model="search">
-  <p>HELLO WHERE AM I</p>
-  <ul ng-repeat='link in data.links'>
-    <li>
-    {{link.code}}
-    </li>
-  </ul>
+<h2>TINY LINKS</h2>
+  <table ng-repeat='link in data.links | filter:search'>
+
+    <tr ng-click='redirect(link.url)'>
+    <td>{{link.url}}</td>
+    <td>{{link.code+'.bitly'}}</td>
+    </tr>
+  </table>
 </div>

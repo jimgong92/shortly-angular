@@ -1,11 +1,9 @@
 angular.module('shortly.links', [])
 
-.controller('LinksController', function ($scope, Links) {
+.controller('LinksController', function ($scope, Links, $window) {
   // Your code here
   // whaddafu?
-  $scope.data = {
-    links: []
-  };
+  $scope.data = {};
 
 
   $scope.getLinks = function(){
@@ -21,5 +19,9 @@ angular.module('shortly.links', [])
     });
   };
   $scope.getLinks();
+
+  $scope.redirect = function(url) {
+    $window.location = url;
+  };
 
 });
