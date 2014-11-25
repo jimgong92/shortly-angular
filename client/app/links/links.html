@@ -1,9 +1,10 @@
-<div id='container' ng-controller='LinkController'>
+<div id='container' ng-controller='LinksController'>
   <!-- Your html here -->
   <input type="text" ng-model="search">
   <p>HELLO WHERE AM I</p>
-  <ul>
+  <ul ng-repeat='link in data.links'>
     <li>
+    {{link.code}}
     </li>
   </ul>
 </div>

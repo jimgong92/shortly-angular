@@ -1,6 +1,6 @@
 angular.module('shortly.services', [])
 
-.factory('Links', function ($http) {
+.factory('Links', function ($http, $window) {
   // Your code here
   var get = function() {
     return $http({
@@ -8,6 +8,7 @@ angular.module('shortly.services', [])
       url: '/api/links'
     })
     .then(function(resp){
+      console.log('RESPONDING',resp);
       return resp.data;
     });
   };
@@ -17,8 +18,12 @@ angular.module('shortly.services', [])
       url: '/api/links',
       data: link
     })
-    .then(function(resp){
-      return resp.data;
+    .then(function(){
+      console.log('HeyThere!');
+    })
+    .catch(function(err){
+      $window.location = '#/links';
+      console.log(err, 'CAUGHTCAUGHT!');
     });
   };
   return {

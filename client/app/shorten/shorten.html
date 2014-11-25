@@ -1,8 +1,8 @@
 <div id='container' ng-controller='ShortenController'>
 <!-- Your code here -->
-  <form method="post">
-    <input type="text" name="shortenLink">
-    <input type="submit" value="Shorten!">
+  <form>
+    <input ng-model="link.url" type="text">
+    <button ng-click="addLink()" type="submit">Shorten!</button>
   </form>
 </div>
 
