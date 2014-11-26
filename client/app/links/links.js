@@ -5,9 +5,7 @@ angular.module('shortly.links', [])
   // whaddafu?
   $scope.data = {};
 
-
   $scope.getLinks = function(){
-    // for each link in links make property $scope.data.link = link;
     Links.get()
     .then(function(results){
       console.log(results);
@@ -15,13 +13,15 @@ angular.module('shortly.links', [])
 
     })
     .catch(function(err) {
-      console.log(err);
+      console.log('Chocolate Swamp');
     });
   };
   $scope.getLinks();
 
-  $scope.redirect = function(url) {
-    $window.location = url;
+  $scope.redirect = function(link) {
+    $window.open(link.base_url + '/api/links/' + link.code);
+    link.visits++;
   };
+
 
 });

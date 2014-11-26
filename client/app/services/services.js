@@ -1,5 +1,6 @@
 angular.module('shortly.services', [])
 
+
 .factory('Links', function ($http, $window) {
   // Your code here
   var get = function() {
@@ -9,6 +10,7 @@ angular.module('shortly.services', [])
     })
     .then(function(resp){
       console.log('RESPONDING',resp);
+      console.log(resp);
       return resp.data;
     });
   };
@@ -22,8 +24,7 @@ angular.module('shortly.services', [])
       console.log('HeyThere!');
     })
     .catch(function(err){
-      $window.location = '#/links';
-      console.log(err, 'CAUGHTCAUGHT!');
+      throw err;
     });
   };
   return {

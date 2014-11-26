@@ -4,8 +4,12 @@ angular.module('shortly.shorten', [])
   $scope.link = {};
   $scope.addLink = function() {
     console.log($scope.link);
-    Links.add($scope.link);
-    // $location.path('/links');
+    Links.add($scope.link)
+    .catch(function(err){
+      $location.path('/whoops');
+
+      console.log('peppermint forest');
+    });
   };
 
 });

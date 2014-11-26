@@ -3,6 +3,7 @@ angular.module('shortly', [
   'shortly.links',
   'shortly.shorten',
   'shortly.auth',
+  'shortly.whoops',
   'ngRoute'
 ])
 .config(function($routeProvider, $httpProvider) {
@@ -23,8 +24,13 @@ angular.module('shortly', [
       templateUrl: 'app/shorten/shorten.html',
       controller: 'ShortenController'
     })
+    .when('/whoops', {
+      templateUrl: 'app/whoops/whoops.html',
+      controller: 'WhoopsController'
+    })
+
     .otherwise({
-      redirectTo: '/links'
+      redirectTo: '/signin'
     });
     // Your code here
 

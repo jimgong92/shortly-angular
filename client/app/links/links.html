@@ -1,12 +1,15 @@
 <div id='container' ng-controller='LinksController'>
   <!-- Your html here -->
+<h2>YOUR LINKS</h2>
   <input type="text" ng-model="search">
-<h2>TINY LINKS</h2>
-  <table ng-repeat='link in data.links | filter:search'>
-
-    <tr ng-click='redirect(link.url)'>
+<h2><em>only shorter</em></h2>
+  <table>
+<!-- Jimmy the orderBy wasn't working cuz we needed to give an attribute in quotes not declare links.visits
+ -->
+ <tr ng-repeat="link in data.links | orderBy:'-visits' | filter:search" ng-click="redirect(link)">
     <td>{{link.url}}</td>
-    <td>{{link.code+'.bitly'}}</td>
+    <td>{{link.code+'.shortly'}}</td>
+    <td>{{link.visits}}</td>
     </tr>
   </table>
 </div>
